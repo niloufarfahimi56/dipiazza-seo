@@ -1,0 +1,9 @@
+# Ignore everything by default
+*
+
+# Keep Git metadata
+!.gitignore
+
+# Keep production site only
+!production/
+!production/**
