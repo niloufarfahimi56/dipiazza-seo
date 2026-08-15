@@ -131,3 +131,158 @@ footer a {
         padding: 45px 18px;
     }
 }
+
+
+/* ===== Di Piazza Luxury Experience ===== */
+
+:root {
+  --bg: #f5f1eb;
+  --surface: #fffdf9;
+  --text: #171513;
+  --muted: #756d64;
+  --accent: #9b6b42;
+  --accent-dark: #6f472b;
+  --line: rgba(23,21,19,.12);
+  --shadow: 0 18px 50px rgba(35,25,18,.10);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at 15% 10%, rgba(155,107,66,.10), transparent 28%),
+    radial-gradient(circle at 85% 20%, rgba(120,90,60,.07), transparent 30%),
+    var(--bg);
+  color: var(--text);
+  animation: pageEnter .8s ease both;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+a,
+button {
+  transition:
+    transform .25s ease,
+    color .25s ease,
+    background-color .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease,
+    opacity .25s ease;
+}
+
+a:hover {
+  color: var(--accent-dark);
+}
+
+.button,
+button,
+a[class*="button"] {
+  position: relative;
+  overflow: hidden;
+}
+
+.button:hover,
+button:hover,
+a[class*="button"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(35,25,18,.16);
+}
+
+.button::after,
+a[class*="button"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 20%,
+    rgba(255,255,255,.35) 50%,
+    transparent 80%
+  );
+  transform: translateX(-120%);
+  transition: transform .65s ease;
+}
+
+.button:hover::after,
+a[class*="button"]:hover::after {
+  transform: translateX(120%);
+}
+
+img {
+  transition: transform .7s ease, filter .7s ease;
+}
+
+img:hover {
+  transform: scale(1.025);
+}
+
+main,
+section,
+article {
+  animation: contentEnter .9s ease both;
+}
+
+@keyframes contentEnter {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+footer {
+  margin-top: 70px;
+  border-top: 1px solid var(--line);
+  background: rgba(255,253,249,.72);
+  backdrop-filter: blur(12px);
+}
+
+footer a {
+  color: var(--muted);
+}
+
+footer a:hover {
+  color: var(--accent-dark);
+}
+
+@media (max-width: 700px) {
+  body {
+    animation-duration: .6s;
+  }
+
+  .button,
+  button,
+  a[class*="button"] {
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
